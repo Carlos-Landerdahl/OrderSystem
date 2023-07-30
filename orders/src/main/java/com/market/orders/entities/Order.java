@@ -11,11 +11,6 @@ public class Order {
         this.discount = discount;
     }
 
-    public Order(Integer code, Double basic) {
-        this.code = code;
-        this.basic = basic;
-    }
-
     public Order() {
     }
 
