@@ -5,19 +5,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class ShippingService {
     public void shipment(Order order) {
+        double frete;
         if (order.getBasic() < 100.0) {
-            order.setBasic(20D);
+            frete = 20D;
             System.out.println("Frete de: 20 reais");
-        }
-
-        if (order.getBasic() >= 100.0 && order.getBasic() <= 200.0) {
-            order.setBasic(12D);
+        } else if (order.getBasic() >= 100.0 && order.getBasic() <= 200.0) {
+            frete = 12D;
             System.out.println("Frete de: 12 reais");
-        }
-
-        if (order.getBasic() >= 200.0) {
-            order.setBasic(0.0);
+        } else {
+            frete = 0.0;
             System.out.println("Frete de: 0 reais");
         }
+
+        double newTotal = order.getBasic() + frete;
+        order.setBasic(newTotal);
+        System.out.println("Valor total: " + newTotal);
     }
 }
