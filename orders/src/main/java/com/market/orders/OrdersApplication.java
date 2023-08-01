@@ -23,19 +23,16 @@ public class OrdersApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Order order = new Order(1034, 150D, 20D);
 		orderService.total(order);
-		shippingServices.shipment(order);
 		System.out.println("Pedido código: " + order.getCode());
 		System.out.println("----------------");
 
 		Order order1 = new Order(2282, 800D, 10D);
 		orderService.total(order1);
-		shippingServices.shipment(order1);
 		System.out.println("Pedido código: " + order1.getCode());
 		System.out.println("----------------");
 
 		Order order2 = new Order(1309, 95D, 0D);
 		orderService.total(order2);
-		shippingServices.shipment(order2);
 		System.out.println("Pedido código: " + order2.getCode());
 		System.out.println("----------------");
 	}
